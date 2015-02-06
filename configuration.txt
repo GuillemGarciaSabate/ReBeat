@@ -1,4 +1,0 @@
-https://developer.spotify.com/web-api/tutorial/
-Compte d'usuari Spotify per a oder utilitzar l'API
-hipermedia14-15
-lasalle
