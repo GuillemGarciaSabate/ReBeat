@@ -1,3 +1,10 @@
+# Scripting languages
+1-Javascript (mostly)
+2-Bootstrap
+3-CSS
+4-HTML
+
+
 # ReBeat
 Rebeat it's an Aplication that you can use to listen music from the most popular songs from the Spotify service,
 you can also search and play music by the name of the song or the name of the album.
