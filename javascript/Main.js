@@ -156,9 +156,13 @@ var ReBeat = {
 	
 	/**
 	*This method load he Search Engine
+	*As you can see, the search it's only made every 1 second, due to performance things
 	*/
 	loadsearchEngine : function(){
-		AJAX.searchEngine();
+		setInterval(search,1000);
+		function search(){
+			AJAX.searchEngine();
+		}
 	},
 
 	/**
@@ -744,10 +748,12 @@ var Menu = {
 var matrix = [];
 var aux = ReBeat;
 var resug = false;
+var bool = false;
 //the first thing the app does it's calling the mostPopular method
 aux.mostPopular();
 //then it loads the search engine
 $("#buscador").keyup(aux.loadsearchEngine);
+
 
 $("#buttonSearch").on('click', function () {
 	var q=0;
