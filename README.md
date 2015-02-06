@@ -8,7 +8,8 @@ Once you find the song you were looking for, and auto-play feature will be repro
 There is also the option to create playlist, you will find that option on the Add to Playlist button, once you click on it
 a menu will be displayed on the rigth of the screen, giving you the option to add playlists and add songs to those playlist.
 When the playlist is done, you will be able to reproduce it, and when the list is over, ReBeat will show you the most popular
-song of the service.
+song of the service. While playing a song you can pass or delete the current song when ever you want by the use of the 
+present buttons next to the Spotify embeded window.
 
 ![image](https://cloud.githubusercontent.com/assets/10515072/5722704/cd4fa226-9b3e-11e4-9917-876ab69b429c.png)
 
@@ -17,4 +18,6 @@ song of the service.
 Then, when you got songs on your playlists, the suggestions button can gain meaning, so once you press this button, a suggestions list will be displayed showing songs you may like. You can press the button as much as you like, it will show you different options each time, and finally when it dosen't have more suggestions for you it will show the most popular songs of the service again.
 
 ![image](https://cloud.githubusercontent.com/assets/10515072/5722723/ec555ec2-9b3e-11e4-904c-24fddc1f31c6.png)
+
+And finally, the tools button will display a set of three options to specify wich kind of search do you want to do:
 
