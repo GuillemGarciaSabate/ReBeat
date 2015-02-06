@@ -1,0 +1,126 @@
+@import url(http://fonts.googleapis.com/css?family=Open+Sans);
+
+header {
+    
+ }
+/*Header propierties*/
+#genericBox{
+	height: 20%;
+}
+ #box1{
+ 	width: 15%;
+ 	height: 15%;
+ }
+
+ #box3{
+ 	height: 10%;
+ 	position:fixed;
+ 	top: 0px;
+ 	right: 8px;
+ }
+ #box3 button img{
+ 	height: 160%;
+ 	background-color: black;
+ 	margin-right: 5px;
+ }
+
+#selectionType{
+ 	color:#ffffff;
+ 	margin-left: 27%;
+ }
+ #selectionType input{
+
+ 	margin-left: 2%;
+ }
+
+/*USER INTERACTION WITH TOOLS*/
+#actions {
+	height: 100%;
+	width: 14%;
+	float: left;
+	background-color: #BCF5A9;
+	border-radius: 25px;
+	position: fixed;
+}
+
+#AP, #S, #T, [id^="dPl"]{
+	width: 60%;
+	margin-left: 12%;
+	margin-bottom: 10px;
+	margin-top: 25px;
+	background-color:#5cbf2a;
+	-moz-border-radius:7px;
+	list-style: none;
+	-webkit-border-radius:7px;
+	border-radius:7px;
+	border:1px solid #18ab29;
+	cursor:pointer;
+	color:#ffffff;
+	padding:8px 15px;
+	text-shadow:0px 1px 0px #2f6627;
+}
+
+[id^="dPl"] {background-color:#DBA901; list-style: none;}
+#inputlist{margin-left: 11%; display: inline-flex; width: 70%;}
+#add{ background-color: red; border: 1px solid red; border-radius:17px; height: 3%; margin-left: 3%;}
+
+#selectPlaylist{
+	height: 100%;
+	right: 1%;
+	position: fixed;
+	width: 14%;
+	float: right;
+	background-color: #FACC2E;
+	border-radius: 25px;
+	
+}
+
+
+.form-group{margin-left: 80%; width: 275%;}
+/*POPULAR TRACKS*/
+#init{margin-left: 15%; position: relative; float: left; width: 69%; flex-wrap: wrap;}
+#init ul {list-style-type: none;}
+#init ul li{margin:auto; float:left;}
+#init ul li p{text-align: center;}
+#init ul li figure{float: left;margin: 1%; padding:1%;}
+#init ul li figure img{width: 300px; height: 300px;}
+
+.navbar>.container .navbar-brand, .navbar>.container-fluid .navbar-brand {
+		margin-left: 7px;
+		padding-top: 5px;
+		
+	}
+	.container-fluid, .navbar-right{
+		background-color: black;
+		margin-right: -4px;
+	}
+	.navbar-brand>img {
+		height: 90px;
+	}
+
+
+
+@media (min-width: 768px) {
+
+	.navbar>.container .navbar-brand, .navbar>.container-fluid .navbar-brand .navbar-btn{
+		margin-left: 7px;
+		padding-top: 0px;
+		background-color: black;
+	}
+
+
+	.navbar-brand>img {
+		height: 90px;
+	}
+
+	
+}
+
+@media (min-width: 768px){
+	.navbar-form .form-control {
+	display: inline-block;
+	vertical-align: middle;
+	width: 100%;
+	margin-top: 4%;}
+}
+
