@@ -156,13 +156,11 @@ var ReBeat = {
 	
 	/**
 	*This method load he Search Engine
-	*As you can see, the search it's only made every 1 second, due to performance things
+	*As you can see, the search it's only made when the input value changes
 	*/
 	loadsearchEngine : function(){
-		setInterval(search,1000);
-		function search(){
-			AJAX.searchEngine();
-		}
+		$("#buscador").change(AJAX.searchEngine());
+		
 	},
 
 	/**
@@ -338,6 +336,7 @@ var AJAX = {
 			var arr;
 			searchOptions = this.loadTracks(query);
 
+
 			if($('#datalist1')) {
 				$('#datalist1').remove();
 			}
@@ -345,8 +344,10 @@ var AJAX = {
 			document.body.appendChild(insert);
 			$("datalist").attr('id', 'datalist1');
 			
-			if(query!=undefined)
+			if(query!=undefined){
 				aux.loadSearchResults(searchOptions, i);
+			}
+
 		}
 		else{aux.mostPopular();}
 	},
