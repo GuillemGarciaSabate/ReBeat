@@ -1,5 +1,5 @@
 # Scripting languages
-1-Javascript (mostly)
+1-Javascript (mostly)  
 2-Bootstrap
 3-CSS
 4-HTML
