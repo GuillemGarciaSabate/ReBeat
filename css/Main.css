@@ -3,37 +3,38 @@
 header {
     
  }
-/*Header propierties*/
+/*Header propierties set in px to ensure that header will fit in any kind of screen*/
 #genericBox{
-	height: 20%;
+	height: 150px;
 }
  #box1{
- 	width: 15%;
+ 	width: 275px;
  	height: 15%;
  }
 
- #box3{
- 	height: 10%;
- 	position:fixed;
- 	top: 0px;
- 	right: 8px;
- }
- #box3 button img{
- 	height: 160%;
+#box3{
+	float:left;
+}
+ #box3 button{
+ 	border: 1px solid black;
  	background-color: black;
- 	margin-right: 5px;
+ 	margin-top: 20px;
  }
+#box3 button i:active{
+ 	font-size: 70pt;
+}
 
 #selectionType{
  	color:#ffffff;
- 	margin-left: 27%;
+ 	margin-left: 56%;
+ 	margin-top:-1%;
+ 	flex-wrap: wrap;
  }
  #selectionType input{
-
  	margin-left: 2%;
  }
 
-/*USER INTERACTION WITH TOOLS*/
+/*USER INTERACTION WITH ACTIONS*/
 #actions {
 	height: 100%;
 	width: 14%;
@@ -43,7 +44,12 @@ header {
 	position: fixed;
 }
 
-#AP, #S, #T, [id^="dPl"]{
+#shareonFB{
+	margin-left: 46%;
+	margin-top: 15%;
+}
+
+#SN, #S, #T, [id^="dPl"]{
 	width: 60%;
 	margin-left: 12%;
 	margin-bottom: 10px;
@@ -72,11 +78,13 @@ header {
 	float: right;
 	background-color: #FACC2E;
 	border-radius: 25px;
-	
+}
+#playlist{
+		list-style-type: none;
 }
 
 
-.form-group{margin-left: 80%; width: 275%;}
+.form-group{margin-left: 25%; width: 330%; flex-wrap: wrap;}
 /*POPULAR TRACKS*/
 #init{margin-left: 15%; position: relative; float: left; width: 69%; flex-wrap: wrap;}
 #init ul {list-style-type: none;}
@@ -95,9 +103,21 @@ header {
 		margin-right: -4px;
 	}
 	.navbar-brand>img {
-		height: 90px;
+		height: 400%;
 	}
 
+footer{
+	margin-left: 20%;
+}
+footer h4{
+	padding-left: 10%;
+	width: 80%;
+	background: #FFBF00;
+	float: left;
+	margin: 0 0 .5% 0;
+	border-radius: 10px;
+	box-shadow: 5px 5px 10px #202020
+}
 
 
 @media (min-width: 768px) {
@@ -110,17 +130,32 @@ header {
 
 
 	.navbar-brand>img {
-		height: 90px;
+		height: 400%;
+	}
+
+	.navbar-form .form-control {
+		display: inline-block;
+		vertical-align: middle;
+		width: 95%;
+		margin-top: 7%;
 	}
 
 	
 }
 
-@media (min-width: 768px){
-	.navbar-form .form-control {
-	display: inline-block;
-	vertical-align: middle;
-	width: 100%;
-	margin-top: 4%;}
-}
+@media only screen and (max-device-width: 480px) {
+	
+	#selectionType {
+		color: #ffffff;
+		margin-left: 33%;
+		margin-top: 1%;
+	}
+	
+	#selectionType input{
+		margin-left: 2%;
+		display:inline;
+	}
 
+	.form-group{margin-left: 5%; width: 250%;}
+
+}

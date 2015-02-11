@@ -32,7 +32,7 @@ var ReBeat = {
 		document.body.appendChild(div);
 
 		var list_item = Layout.createContainer("popularTracks", "ul");
-		list_item.addEventListener("click", this.clickResponse);
+		//list_item.addEventListener("click", this.clickResponse);
 		document.body.appendChild(list_item);
 
 		var title;
@@ -55,7 +55,7 @@ var ReBeat = {
 				//creo els contenidors de cada cosa
 				title = Layout.createContainer(i, "p");
 				image = this.render(thumbnail[i], name[i]);
-
+				image.addEventListener("click", aux.clickResponse);
 				title.innerHTML = name[i];
 
 				basicBloc = Layout.createContainer("basicBloc"+i, "li");
@@ -174,7 +174,7 @@ var ReBeat = {
 			var auxiliar;
 			auxiliar = Layout.createContainer("init","div");
 			auxiliar.innerHTML="<iframe src='https://embed.spotify.com/?uri="+src[1]+"' id='embed' width=80% height=100% frameborder='0' allowtransparency='true'></iframe><br><iframe src="+src[0]+" width=1% height=1% frameborder='0' allowtransparency='true'>";
-
+			console.log("https://embed.spotify.com/?uri="+src[1]);
 			$("#init").replaceWith(auxiliar);
 		}catch(ex){
 			console.log("Spotify is not providing good data");
@@ -201,13 +201,14 @@ var ReBeat = {
 		
 		document.body.appendChild(div);
 		var listedResult = Layout.createContainer("listedResult", "ul");
-		listedResult.addEventListener("click", aux.clickResponse);
+		//listedResult.addEventListener("click", aux.clickResponse);
 
 			//A Callback used to simplify code
 			//Here the containers with the data are created and filled
 			function printer(i){
 				title = Layout.createContainer(index, "p");
 				image = ReBeat.render(thumbnail[i], name[i]);
+				image.addEventListener("click", aux.clickResponse);
 				title.innerHTML = name[i];
 				basicBloc = Layout.createContainer("basicBloc"+index, "li");
 				basicBloc.setAttribute("data-name",name[i]);
@@ -282,6 +283,23 @@ var ReBeat = {
 				}
 			}
 		}
+	},
+	/**
+	*This method Post on FB the choosen song
+	*@param songData is the array containing the name and the album of the clicked song, used to search in Spotify
+	*/
+	share: function(songData){
+		songData = songData.split(":");
+		var url = this.spotifyPlayLink(songData[0],songData[1],0);
+		var auxiliar = Layout.createContainer("init","div");
+		var textnode = Layout.createContainer("text","p");
+		auxiliar.style.backgroundImage = 'url("img/horari 2 semestre.png")';
+		auxiliar.style.backgroundRepeat = 'no-repeat';
+		auxiliar.style.backgroundOpacity = '0.5';
+		auxiliar.style.backgroundPosition = '50%';
+		auxiliar.innerHTML = "<iframe id='shareonFB' src='https://www.facebook.com/plugins/share_button.php?href=https://embed.spotify.com/?uri="+url[1]+"&amp;layout=button_count' scrolling='no' frameborder='0'; allowTransparency='true'></iframe>";
+		console.log("embed.spotify.com/?uri="+url[1]);
+		$("#init").replaceWith(auxiliar);
 	}
 }
 
@@ -430,18 +448,18 @@ var Menu = {
 			tools.appendChild(options);
 			document.body.insertBefore(tools, init);
 
-			var butAP = Layout.createContainer("AP", "button");
+			var butSN = Layout.createContainer("SN", "button");
 			var butS = Layout.createContainer("S", "button");
 			var butT = Layout.createContainer("T", "button");
 
-			var nodeAP = document.createElement("li");
+			var nodeSN = document.createElement("li");
 			var nodeS = document.createElement("li");
 			var nodeT = document.createElement("li");
 
-			var textnode = document.createTextNode("Add to Playlist");
-			butAP.appendChild(textnode);
-			nodeAP.appendChild(butAP);
-			document.getElementById("opciones").appendChild(nodeAP);
+			var textnode = document.createTextNode("Share");
+			butSN.appendChild(textnode);
+			nodeSN.appendChild(butSN);
+			document.getElementById("opciones").appendChild(nodeSN);
 
 			textnode = document.createTextNode("Suggestions");
 			butS.appendChild(textnode);
@@ -453,8 +471,8 @@ var Menu = {
 			nodeT.appendChild(butT);
 			document.getElementById("opciones").appendChild(nodeT);
 
-			$("#AP").on('click', function () {
-	   			 Menu.showPlaylist(q);
+			$("#SN").on('click', function () {
+	   			 Menu.ShareIcons();
 	  		})
 
 	  		$("#S").on('click', function () {
@@ -568,7 +586,7 @@ var Menu = {
    		aux[0].style.top = '37vh';
    		aux[0].appendChild(aux[1]);
 
-   		deleteImage.style.height = '14%';
+   		deleteImage.style.height = '17%';
    		deleteButton.style.float = 'right';
    		deleteButton.style.right = '26%';
    		deleteButton.style.position = 'fixed';
@@ -599,13 +617,11 @@ var Menu = {
   		})
 
 	},
-	/**
-	*this method appends a button on the top of each basicBloc, so you can add those songs to the playlist
-	*@param list this is the name of the playlist where you want to add the song, when we click a add buton it's pased by paramether to another method that we will see
-	*/
-	Selectsongs: function(list){
-		
+	//This method displays the share icons on every song when the share button it's pressed
+	ShareIcons: function(){
 		$('.addB').remove();
+		$('.postB').remove();
+
 		if($("#listedResult").length) {
 			var longitude = document.getElementById("listedResult").childNodes.length;			
 		}
@@ -623,7 +639,60 @@ var Menu = {
 			album[longitude] = $("#basicBloc"+longitude).attr("data-album");
 			name[longitude] = $("#basicBloc"+longitude).attr("data-name");
 			bt = Layout.createContainer(name[longitude]+":"+album[longitude]+"-"+longitude,"button");
+			img = Layout.createImage("img/share.png","provisional");
+
+			img.style.height = '25px';
+			img.style.width = '50px';
+
+			bt.appendChild(img);
+			//bt.style.height = '22px';
+			//bt.style.width = '22px';
+			bt.style.paddingLeft = '0px';
+			bt.style.paddingRight = '0px';
+			bt.style.paddingBottom  = '0px';
+			bt.style.paddingTop = '0px';
+			bt.style.marginLeft = '3px';
+			bt.style.border = '0px';
+			$(bt).addClass("postB");
+
+			document.getElementById(longitude).appendChild(bt);
+
+			longitude--;
+		}
+
+		$(".postB").on('click', function(){
+			bt = this.getAttribute("id");
+			aux = bt.split("-");
+			ReBeat.share(aux[0]);
+		})
+	},
+	/**
+	*this method appends a button on the top of each basicBloc, so you can add those songs to the playlist
+	*@param list this is the name of the playlist where you want to add the song, when we click a add buton it's pased by paramether to another method that we will see
+	*/
+	Selectsongs: function(list){
+		$('.postB').remove();
+		$('.addB').remove();
+		if($("#listedResult").length) {
+			var longitude = document.getElementById("listedResult").childNodes.length;			
+		}
+		else{
+			var longitude = document.getElementById("popularTracks").childNodes.length;
+		}
+		
+		var album = [];
+		var name = [];
+		var bt;
+		var img;
+
+		var aux = [];
+
+		while(longitude > 0){
+			album[longitude] = $("#basicBloc"+longitude).attr("data-album");
+			name[longitude] = $("#basicBloc"+longitude).attr("data-name");
+			bt = Layout.createContainer(name[longitude]+":"+album[longitude]+"-"+longitude,"button");
 			img = Layout.createImage("img/add.jpg","provisional");
+
 			img.style.height = '19px';
 			img.style.width = '19px';
 
@@ -639,9 +708,14 @@ var Menu = {
 
 			longitude--;
 		}
-
+		//the animate query gives the effects to the add button
 		$(".addB").on('click', function(){
 			bt = this.getAttribute("id");
+			$(document.getElementById(bt)).animate({
+			    opacity: 0,
+			    left: "+=50",
+			    //height: "toggle"
+			 },1000);
 			aux = bt.split("-");
 			Menu.PlayListManager(aux[0],list, 1);
 		})
@@ -755,10 +829,13 @@ aux.mostPopular();
 //then it loads the search engine
 $("#buscador").keyup(aux.loadsearchEngine);
 
-
+/**
+*That query makes appear all the possible options of the App with one single click
+*/
 $("#buttonSearch").on('click', function () {
 	var q=0;
     Menu.createMenu(q);
+    Menu.showPlaylist(q);
 })
 
 $("#home").on('click', function () {

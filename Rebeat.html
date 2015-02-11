@@ -10,8 +10,9 @@
 		
 		<!-- Reset CSS -->
 		<link rel="stylesheet" href="css/reset.css">
-		<!-- Latest compiled and minified CSS -->
+		<!-- Latest compiled and minified CSS, thanks to maxcdn who made this possible-->
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+		<link rel="stylesheet" href="css/font-awesome/css/font-awesome.min.css">
 		<!-- Main styles -->
 		<link rel="stylesheet" href="css/Main.css">
 		<!-- Logo of the product -->
@@ -21,6 +22,15 @@
 		
 	</HEAD>
 	<BODY>
+	<div id="fb-root"></div>
+		<script>(function(d, s, id) {
+  			var js, fjs = d.getElementsByTagName(s)[0];
+ 			if (d.getElementById(id)) return;
+  			js = d.createElement(s); js.id = id;
+  			js.src = "//connect.facebook.net/ca_ES/sdk.js#xfbml=1&version=v2.0";
+  			fjs.parentNode.insertBefore(js, fjs);
+			}(document, 'script', 'facebook-jssdk'));
+		</script>
 		<HEADER>
 		
 			<nav class="navbar navbar-default">
@@ -30,8 +40,14 @@
 	    			  	<A class="navbar-brand" href="#" id="home">
 	    			  		<IMG alt="Brand" src="img/horari 2 semestre.png"></IMG>
 	    			  	</A>
-	    			
-	    			</DIV>
+
+	    			  	<SPAN id="box3">
+							<button type="button" class="btn btn-default navbar-btn navbar-right" data-toggle="modal" data-target="#buttonSearch">
+								<i id ="buttonSearch" class="fa fa-bars fa-5x" style="color:#FE9A2E"></i>
+							</button>
+						</SPAN>	
+
+					</DIV>
 
 	    			<DIV id="box2">
 		    			<FORM class="navbar-form navbar-left" role="search" autocomplete="on" method="POST" id="formulario">
@@ -41,12 +57,7 @@
 						</FORM>
 						<BR><BR><BR><BR>
 					</DIV>
-					
-					<DIV id="box3">
-						<button type="button" class="btn btn-default navbar-btn navbar-right" data-toggle="modal" data-target="#buttonSearch">
-							<IMG id ="buttonSearch" src="img/facebook.png">
-						</button>
-					</DIV>
+		
 	   			</div>
 	  		</nav>
 
@@ -56,4 +67,7 @@
 		<SCRIPT src="javascript/jquery-1.11.1.min.js" type="text/javascript"></SCRIPT>
 		<SCRIPT src="javascript/Main.js" type="text/javascript"></SCRIPT>
 	</BODY>
+	<FOOTER>
+		<H4>&copy; Copyright 2015 All Rights Reserved, This page does not keep cookies or any other kind of information</H4>
+	</FOOTER>
 </HTML>
