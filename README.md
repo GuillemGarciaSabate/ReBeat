@@ -24,5 +24,6 @@ There is also a tools button, wich make the App able to search by song, album or
 
 You finally got the option to share the songs that you liked with friends or just post it on your Facebook wall:
 
-
+![img7](https://cloud.githubusercontent.com/assets/10881908/6146351/0f9a4550-b1ec-11e4-9cf0-b0236103a600.png)
+![img8](https://cloud.githubusercontent.com/assets/10881908/6146353/12e29ee2-b1ec-11e4-83ae-55c18dd08f18.png)
 
