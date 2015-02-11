@@ -1,7 +1,8 @@
 /**
  * Welcome to ReBeat App, a tool to find that song you were thinking of and play it on Spotify
- *@author Guillem Garcia Sabate: software developer
- *@version 1.0.1 in HATCHING state
+ *@author Guillem Garcia Sabate: Software developer
+ *@author Mar Garcia Sabate: Usability expert
+ *@version 1.0.2 in HATCHING state
  */
 
 
@@ -29,10 +30,9 @@ var ReBeat = {
 		var album = [];
 
 		var div = Layout.createContainer("init", "div");
-		document.body.appendChild(div);
+		document.body.insertBefore(div, document.getElementById("footer"));
 
 		var list_item = Layout.createContainer("popularTracks", "ul");
-		//list_item.addEventListener("click", this.clickResponse);
 		document.body.appendChild(list_item);
 
 		var title;
@@ -199,7 +199,7 @@ var ReBeat = {
 			$("#init").remove();
 		}
 		
-		document.body.appendChild(div);
+		document.body.insertBefore(div, document.getElementById("footer"));
 		var listedResult = Layout.createContainer("listedResult", "ul");
 		//listedResult.addEventListener("click", aux.clickResponse);
 
